@@ -1,16 +1,18 @@
+// Variable Items from HTML
 var addButton = document.getElementById("add-button");
 var clearButton = document.getElementById("clear-completed");
 var emptyButton = document.getElementById("empty-list");
 var saveButton = document.getElementById("save-list");
+var todoinput = document.getElementById("todo-input");
+var todolist = document.getElementById("todo-list");
 
+//Adding Event listener to click event
 addButton.addEventListener("click",addTodoItem);
 clearButton.addEventListener("click",clearItem);
 emptyButton.addEventListener("click",emptyItem);
 saveButton.addEventListener("click",saveItem);
 
-var todoinput = document.getElementById("todo-input");
-var todolist = document.getElementById("todo-list");
-
+//Toggle state of the item in list
 function toggleTodoItemState(){
     if(this.classList.contains("completed")){
         this.classList.remove("completed");
@@ -20,25 +22,26 @@ function toggleTodoItemState(){
     }
 }
 
+//Adding new item and state to the list
 function newTodoItem(textIn,completed){
     var todoItem = document.createElement("li");
     var todoText = document.createTextNode(textIn);
     todoItem.appendChild(todoText);
-
     if(completed) {
         todoItem.classList.add("completed");
     }
-
     todolist.appendChild(todoItem);
     todoItem.addEventListener("dblclick", toggleTodoItemState);
 }
 
+//Calling newTodoItem function to add item and clear the input text field
 function addTodoItem(){
     var itemText = todoinput.value;
     newTodoItem(itemText,false);
     todoinput.value="";
 }
 
+//Clear all completed items based on the state
 function clearItem(){
     var completedItems = todolist.getElementsByClassName("completed")
     while (completedItems.length > 0){
@@ -46,6 +49,7 @@ function clearItem(){
     }
 }
 
+//Empty the list
 function emptyItem(){
     var todoitems = todolist.children;
     while (todoitems.length > 0){
@@ -53,6 +57,7 @@ function emptyItem(){
     }
 }
 
+//Saving Item to the list, also save the list to local Storage that we can retrieve it later
 function saveItem(){
     var todos = [];
     for (var i = 0; i < todolist.children.length; i++){
@@ -67,6 +72,7 @@ function saveItem(){
     localStorage.setItem("todos",JSON.stringify(todos));
 }
 
+//Load the list from localstorage if we save the information
 function loadList(){
     if(localStorage.getItem("todos") != null){
         var todos = JSON.parse(localStorage.getItem("todos"));
@@ -77,6 +83,7 @@ function loadList(){
     }
 }
 
+//Button event stop ENTER key trigger default event and use it to add Item
 document.getElementById('todo-input').addEventListener('keypress', function(event) {
     if (event.keyCode == 13) {
         event.preventDefault();
@@ -89,4 +96,5 @@ document.getElementById('todo-input').addEventListener('keypress', function(even
     }
 });
 
+//Load the list when we start
 loadList() 
