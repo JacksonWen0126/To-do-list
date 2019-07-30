@@ -55,6 +55,7 @@ function emptyItem(){
     while (todoitems.length > 0){
         todoitems.item(0).remove();
     }
+    saveItem();
 }
 
 //Saving Item to the list, also save the list to local Storage that we can retrieve it later
