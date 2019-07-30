@@ -88,7 +88,7 @@ function loadList(){
 document.getElementById('todo-input').addEventListener('keypress', function(event) {
     if (event.keyCode == 13) {
         event.preventDefault();
-        if (todoinput!=""){
+        if (todoinput.value != ""){
             addTodoItem();
         }
     }
