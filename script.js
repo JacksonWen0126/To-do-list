@@ -2,7 +2,7 @@
 var addButton = document.getElementById("add-button");
 var clearButton = document.getElementById("clear-completed");
 var emptyButton = document.getElementById("empty-list");
-var saveButton = document.getElementById("save-list");
+//var saveButton = document.getElementById("save-list");
 var todoinput = document.getElementById("todo-input");
 var todolist = document.getElementById("todo-list");
 
@@ -10,7 +10,7 @@ var todolist = document.getElementById("todo-list");
 addButton.addEventListener("click",addTodoItem);
 clearButton.addEventListener("click",clearItem);
 emptyButton.addEventListener("click",emptyItem);
-saveButton.addEventListener("click",saveItem);
+//saveButton.addEventListener("click",saveItem);
 
 //Toggle state of the item in list
 function toggleTodoItemState(){
@@ -20,6 +20,7 @@ function toggleTodoItemState(){
     else{
         this.classList.add("completed");
     }
+    saveItem()
 }
 
 //Adding new item and state to the list
@@ -39,6 +40,7 @@ function addTodoItem(){
     var itemText = todoinput.value;
     newTodoItem(itemText,false);
     todoinput.value="";
+    saveItem()
 }
 
 //Clear all completed items based on the state
@@ -47,6 +49,7 @@ function clearItem(){
     while (completedItems.length > 0){
         completedItems.item(0).remove();
     }
+    saveItem()
 }
 
 //Empty the list
