@@ -4,24 +4,26 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+        <a class="weatherwidget-io" href="https://forecast7.com/en/43d04n87d91/milwaukee/?unit=us" data-label_1="MILWAUKEE" data-label_2="WEATHER" data-icons="Climacons" data-theme="original" >MILWAUKEE WEATHER</a>
     <div class="todo-wrapper">
         <h1>To-do-list</h1>
         <p>Double click to mark it complete</p>
         <form name="todo-adder">
-            <input type="text" id="todo-input"/>
+            <input type="text" id="todo-input" placeholder="E.g. Study Python"/>
+            <button id="add-button">Add</button>
         </form>
-        <button id="add-button">Add</button>
         <br>
         <ol id = "todo-list"></ol>
         <div>
             <button id="clear-completed">Clear Completed</button>
             <button id="empty-list">Empty</button>
-            
         </div>
     </div>
 
     <script src="script.js"></script>
     <footer>Jackson-W</footer>
 </body>
-
+<script>
+    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+    </script>
 </html>

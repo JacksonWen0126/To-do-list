@@ -95,9 +95,6 @@ document.getElementById('todo-input').addEventListener('keypress', function(even
             addTodoItem();
         }
     }
-    if(event.ctrlKey && event.keyCode === 's'){
-        alert("saving")
-    }
 });
 
 //Load the list when we start

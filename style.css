@@ -8,13 +8,16 @@ body{
 }
 
 .todo-wrapper{
-    background: url(https://i.imgur.com/MJAkxbh.png);
-    margin-top: 50px;
+    display:flex;
+    flex-direction: column;
+    background: rgb(241, 240, 240);
+    margin-top: 20px;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
     border-radius: 15px;
     padding: 30px;
+    box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
 }
 
 .todo-wrapper form{
@@ -24,8 +27,9 @@ body{
 
 .todo-wrapper input{
     margin:5px;
-    padding: 6px;
+    padding:6px;
     border-radius: 10px;
+    max-width: 35%;
 }
 
 .todo-wrapper h1{
@@ -33,7 +37,7 @@ body{
 }
 
 .todo-wrapper p{
-    color: blueviolet;
+    color: rgb(96, 34, 153);
     font-size: 20;
     font-family: 'Lobster', cursive;
     font-weight: 200;
@@ -42,6 +46,7 @@ body{
 
 .todo-wrapper ol{
     margin:20px;
+    list-style: none;
 }
 
 .todo-wrapper ol li{
@@ -55,6 +60,7 @@ body{
     user-select: none;
     -webkit-transition: all 0.5s ease-out;
     transition: all 0.5s ease-out;
+    font-size: 130%;
 }
 
 .todo-wrapper .completed{
@@ -78,16 +84,16 @@ body{
     font-style: italic;
 }
 
+.todo-wrapper #add-button{
+    background-color:white;
+}
+
 .todo-wrapper #clear-completed{
     background-color: chartreuse;
 }
 
 .todo-wrapper #empty-list{
     background-color: crimson;
-}
-
-.todo-wrapper #save-list{
-    background-color: coral;
 }
 
 footer{
